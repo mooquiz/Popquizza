@@ -33,8 +33,8 @@ jobs:
           cp -r priv dist/priv
       - name: Update path in index.html to use minified app
         run: | 
-          sed -i 's|priv/static/mooquiz.css|priv/static/mooquiz.min.css|' dist/index.html
-          sed -i 's|priv/static/mooquiz.mjs|priv/static/mooquiz.min.mjs|' dist/index.html
+          sed -i 's|priv/static/popquizza.css|priv/static/popquizza.min.css|' dist/index.html
+          sed -i 's|priv/static/popquizza.mjs|priv/static/popquizza.min.mjs|' dist/index.html
       - name: Deploy with Wrangler
         uses: cloudflare/wrangler-action@v3
         with:
