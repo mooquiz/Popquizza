@@ -3,9 +3,9 @@
 
 import lustre
 import lustre/effect
-import mooquiz/model.{type Model, Model, Stats}
-import mooquiz/update.{type Msg}
-import mooquiz/view
+import popquizza/model.{type Model, Model, Stats}
+import popquizza/update.{type Msg}
+import popquizza/view
 import rsvp
 import tempo/date
 

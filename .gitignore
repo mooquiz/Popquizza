@@ -2,7 +2,7 @@
 *.ez
 /build
 erl_crash.dump
-priv/static/mooquiz.mjs
-priv/static/mooquiz.css
-priv/static/mooquiz.min.mjs
-priv/static/mooquiz.min.css
+priv/static/popquizza.mjs
+priv/static/popquizza.css
+priv/static/popquizza.min.mjs
+priv/static/popquizza.min.css

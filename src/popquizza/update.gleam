@@ -8,7 +8,7 @@ import gleam/list
 import gleam/option.{None, Some}
 import gleam/string
 import lustre/effect
-import mooquiz/model.{type Model, type Stats, Model, Stats}
+import popquizza/model.{type Model, type Stats, Model, Stats}
 import rsvp
 import tempo
 import tempo/date

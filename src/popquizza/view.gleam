@@ -8,8 +8,8 @@ import gleam/option.{Some}
 import lustre/attribute
 import lustre/element/html
 import lustre/event
-import mooquiz/model.{type Model}
-import mooquiz/update
+import popquizza/model.{type Model}
+import popquizza/update
 import number_to_words
 import tempo
 import tempo/date
