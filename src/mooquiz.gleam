@@ -2,6 +2,7 @@
 // Copyright (C) 2025 ⟁K <k@u27c.one>
 
 import gleam/dynamic/decode
+import gleam/float
 import gleam/int
 import gleam/json
 import gleam/list
@@ -155,10 +156,15 @@ fn app_read_answers(model: Model, answers: String) {
         |> list.zip(model.questions)
         |> list.map(fn(x) { Question(..x.1, selected: Some(x.0)) })
 
-      #(
-        Model(..model, questions: questions, state: Submitted),
-        effect.from(fn(dispatch) { calculate_stats(model, dispatch) }),
-      )
+      case attempt.out_of {
+        0 -> #(model, effect.none())
+        _ -> {
+          #(
+            Model(..model, questions: questions, state: Submitted),
+            effect.from(fn(dispatch) { calculate_stats(model, dispatch) }),
+          )
+        }
+      }
     }
   }
 }
@@ -167,7 +173,10 @@ fn app_read_questions(model, file) {
   let assert [title, ..questions] = file |> string.trim |> string.split("\n\n")
   let questions =
     list.map(questions, fn(q) {
-      let assert [question_text, correct, ..answers] = string.split(q, "\n")
+      let assert [question_text, correct, ..answers] =
+        q
+        |> string.split("\n")
+        |> list.map(fn(x) { string.trim(x) })
 
       let answers =
         answers
@@ -401,9 +410,16 @@ fn results_title(score: Int) {
 }
 
 fn score_div(title: String, number: Int) {
+  score_div_float(title, int.to_float(number), 0)
+}
+
+fn score_div_float(title: String, number: Float, precision: Int) {
   html.div([attribute.class("grow")], [
     html.div([attribute.class("text-3xl text-center")], [
-      html.text(int.to_string(number)),
+      html.text(case precision {
+        0 -> number |> float.truncate |> int.to_string
+        _ -> number |> float.to_precision(precision) |> float.to_string
+      }),
     ]),
     html.div([attribute.class("text-center")], [html.text(title)]),
   ])
@@ -471,11 +487,30 @@ fn result_panel(model: Model) {
                 [
                   score_div("Count", model.stats.count),
                   score_div("Streak", model.stats.streak),
+                  score_div_float(
+                    "Average",
+                    int.to_float(model.stats.total)
+                      /. int.to_float(model.stats.count),
+                    2,
+                  ),
                   score_div("Total", model.stats.total),
                 ],
               ),
               html.p([attribute.class("mb-6")], [
                 html.text("A new set of questions will appear at midnight"),
+              ]),
+              html.p([attribute.class("mb-6")], [
+                html.a(
+                  [
+                    attribute.class(
+                      "hover:underline hover:text-blue-700 text-blue-500",
+                    ),
+                    attribute.href(
+                      "https://www.facebook.com/profile.php?id=61575507458149",
+                    ),
+                  ],
+                  [html.text("Join us on our Facebook page!")],
+                ),
               ]),
               html.div([attribute.class("flex gap-4")], [
                 html.button(
@@ -492,7 +527,7 @@ fn result_panel(model: Model) {
                       "px-4 py-2 rounded-lg font-semibold transition bg-subhead text-white hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-head dark:hover:bg-cyan-600",
                     ),
                   ],
-                  [html.text("See answers")],
+                  [html.text("See Answers")],
                 ),
               ]),
             ],
