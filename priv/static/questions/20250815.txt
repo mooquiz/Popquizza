@@ -7,26 +7,26 @@ Steve Miller Band
 Daddy Long Legs
 Chicago
 
-The song Blackbird is credited to The Beatles, but it was written and performed solo by which member of the band?
+Who was the lead singer of the Motown group The Commodores?
 4
-Ringo Star
+Billy Ocean
+James Taylor
+Rudy Martinez
+Lionel Richie
+
+The 1968 White Album song Blackbird is credited to The Beatles, but the recording actually only features one member of the band - which one?
+4
+Ringo Starr
 John Lennon
 George Harrison
 Paul McCartney
 
-Saxon had a UK No 5 hit album in 1982 with 'The [what] Has Landed'?
+Saxon had a UK No 5 hit album in 1982 with an album called what?
 4
 The Seagull Has Landed
 The Condor Has Landed
 The Albatross Has Landed
 The Eagle Has Landed
-
-Who was the lead singer of the Motown group The Commodores?
-4
-Bill Ocean
-James Taylor
-Babyface
-Lionel Richie
 
 Rockin' Robin was a UK No 3 hit single by which member of the Jackson family in 1972?
 4
@@ -35,19 +35,12 @@ Janet Jackson
 Peter Jackson
 Michael Jackson
 
-Who had a UK No 13 hit single with Fly Like An Eagle in 1997?
-1
-Seal
-Lionel Richie
-George Michael
-Sade
-
-What was the name of the avant-pop band fronted by Simon Jeffries from 1972 to 1997?
+What was the name of the avant-pop band fronted by Simon Jeffes from 1972 to 1997?
 1
 Penguin Cafe Orchestra
 Penguin Dance Group
 Penguins Can't Fly
-Stunning Penguin
+Palaeeudyptinae
 
 Albatross was a UK No 1 hit single for which band in 1968?
 4
@@ -56,7 +49,7 @@ Deep Purple
 The Jimi Hendrix Experience
 Fleetwood Mac
 
-Jonathan Livingstone Seagull was a UK No 34 hit soundtrack album for which American singer in 1974?
+Jonathan Livingston Seagull was a UK No 34 hit soundtrack album for which American singer in 1974?
 3
 Tina Turner
 Glen Campbell
@@ -69,3 +62,10 @@ Flying High
 Sail On
 Three Times A Lady
 Still
+
+Who had a UK No 13 hit single with Fly Like An Eagle in 1997?
+1
+Seal
+Lionel Richie
+George Michael
+David Bowie
