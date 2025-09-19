@@ -1,6 +1,6 @@
 Brit Awards 1995
 
-The 1995 Brit Awards was held in which prestigious building in London?
+The 1995 Brit Awards was held at which prestigious venue in London?
 1
 Alexandra Palace
 Buckingham Palace
@@ -17,11 +17,11 @@ There's No Other Way
 Who won the British Female Solo Artist award at the 1995 Brits?
 2
 Lisa Stansfield
-Eddie Reader
+Eddi Reader
 Michelle Gayle
 Kate Bush
 
-Best International Male Solo Artist was won by whom?
+Who won the Best International Male Solo Artist award?
 1
 Prince
 Youssou N'Dour
@@ -49,7 +49,7 @@ Saturday Night Fever
 Four Weddings And A Funeral
 Love Actually
 
-Which American band won the International Group Award?
+Which American band won the International Group award?
 3
 Crash Test Dummies
 Neil Young & Crazy Horse
@@ -63,11 +63,9 @@ Blur
 Eternal
 Oasis
 
-Oasis won the Breakthrough act award - but which of these bands was not nominated?
+Oasis won the Breakthrough Act award - but which of these bands was not nominated?
 3
 PJ & Duncan
 Echobelly
 Blur
 Portishead
-
-
