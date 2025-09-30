@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F8FAFC;
+  --color-d-background: #0F172A;
+  --color-question: #F1F5F9;
+  --color-d-question: #1C2431;
+  --color-question-hover: #C7D2FE;
+  --color-d-question-hover: #334155;
+  --color-correct: #BBF7D0;
+  --color-d-correct: #14532D;
+  --color-incorrect: #FECACA;
+  --color-d-incorrect: #7F1D1D;
+  --color-selected: #DDD6FE;
+  --color-d-selected: #5B21B6;
+  --color-head: #7E22CE;
+  --color-d-head: #C084FC;
+  --color-subhead: #0369A1;
+  --color-d-subhead: #7DD3FC;
+  --color-normaltext: #111827;
+  --color-d-normaltext: #F9FAFB;
+  --font-sans: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-logo: Anybody, Fredoka, Poppins, "Arial Rounded MT Bold", Arial, sans-serif;
+
+}
