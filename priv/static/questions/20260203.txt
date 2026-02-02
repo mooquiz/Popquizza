@@ -1,52 +1,66 @@
-Acting School
+Acting Up
+
+Which pop star played the lead character in the 1983 film Merry Christmas Mr. Lawrence?
+4
+Simon Le Bon
+Lloyd Cole
+Elton John
+David Bowie
 
 Which singer starred in the films A Star Is Born (2018) and House of Gucci (2021)?
-3
+2
 Madonna
 Lady Gaga
-Arianna Grande
+Ariana Grande
 Cher
 
 Which singer starred in the films Evita (1996) and Desperately Seeking Susan (1985)?
 1
 Madonna
 Lady Gaga
-Arianna Grande
+Ariana Grande
 Cher
 
 Which singer starred in the films Moonstruck (1987) and Mermaids (1990)?
 4
 Madonna
 Lady Gaga
-Arianna Grande
+Ariana Grande
 Cher
 
-Which singer starred in the films Don't Look Up (2001) and Wicked (2024)?
+Which singer starred in the films Don't Look Up (2021) and Wicked (2024)?
 3
 Madonna
 Lady Gaga
-Arianna Grande
+Ariana Grande
 Cher
-
-Which pop star played the lead character in the 1983 film Merry Christmas Mr. Lawrence?
-4
-Simon Le Bon
-Mick Jagger
-Elton John
-Roger Daltry
-
-Which singer starred in the films Ned Kelly (1970) and Performance (1970)?
-3
-David Bowie
-Harry Styles
-Mick Jagger 
-Mark Wahlberg
 
 Which singer starred in the films The Perfect Storm (2000) and Boogie Nights (1997)?
 4
 David Bowie
 Harry Styles
-Mick Jagger 
+Mick Jagger
+Mark Wahlberg
+
+Which singer starred in the films Ned Kelly (1970) and Performance (1970)?
+3
+David Bowie
+Harry Styles
+Mick Jagger
+Mark Wahlberg
+
+Which singer starred in the films Dunkirk (2017) and Don't Worry Darling (2022)?
+2
+David Bowie
+Harry Styles
+Mick Jagger
+Mark Wahlberg
+
+Which singer starred in the films The Man Who Fell To Earth (1976) and Labyrinth (1986)?
+1
+David Bowie
+Harry Styles
+Mick Jagger
 Mark Wahlberg
 
 Who plays Napster co-founder Sean Parker in the 2010 film The Social Network?
@@ -55,17 +69,3 @@ Justin Timberlake
 Jason Orange
 Will Smith
 Steve Van Zandt
-
-Which singer starred in the films Dunkirk (2017) and Don't Worry Darling (2022)?
-2
-David Bowie
-Harry Styles
-Mick Jagger 
-Mark Wahlberg
-
-Which singer starred in the films The Man Who Fell To Earth (1976) and Labyrinth (1986)
-1
-David Bowie
-Harry Styles
-Mick Jagger 
-Mark Wahlberg
