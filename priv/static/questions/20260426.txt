@@ -8,10 +8,10 @@ Fat Elvis
 Elvis Blue
 
 Stranger In Moscow was a UK No 4 hit single in 1996 for which member of the Jackson family?
-4
+3
 Janet Jackson
 La Toya Jackson
-Jermain Jackson
+Jermaine Jackson
 Michael Jackson
 
 Dublin To Detroit was a 2014 UK No 14 hit album for which boy band?
@@ -28,14 +28,14 @@ Suzanne Vega
 Sonia
 Cilla Black
 
-The Beautiful South had a UK No 5 hit single in 1996 with a song named after which city?
+The Beautiful South had a UK No 5 hit single in 1996 with a song named what?
 1
-Rotterdam
-Budapest
-Vienna
-Madrid
+Rotterdam (Or Anywhere)
+Budapest (Or Anywhere)
+Vienna (Or Anywhere)
+Madrid (Or Anywhere)
 
-Kenny Ball And His Jazzmen had a UK No 2 hit single in 1961 with 'Midnight In...' where?
+Kenny Ball And His Jazzmen had a UK No 2 hit single in 1962 with 'Midnight In...' where?
 1
 Midnight In Moscow
 Midnight In Minsk
@@ -56,11 +56,11 @@ The Concretes
 A-ha
 Europe
 
-Monaco is a side-project of which member of the band New Order, formed in 1996?
+Which member of New Order formed the side project Monaco in 1996?
 3
 Bernard Sumner
 Johnny Marr
-Peter Kook
+Peter Hook
 Gillian Gilbert
 
 Frank Chacksfield had a UK No 15 hit single in 1956 with 'In Old...' where?
@@ -69,4 +69,3 @@ In Old Amsterdam
 In Old London
 In Old Lisbon
 In Old Dublin
-
