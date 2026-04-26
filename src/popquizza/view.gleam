@@ -8,7 +8,6 @@ import gleam/option.{Some}
 import lustre/attribute
 import lustre/element/html
 import lustre/event
-import number_to_words
 import popquizza/model.{type Model}
 import popquizza/update
 import tempo
@@ -43,7 +42,7 @@ pub fn view(model: Model) {
             <> model.launch_date
             |> date.difference(model.date)
             |> int.add(1)
-            |> number_to_words.number_to_words()
+            |> int.to_string
             <> ": "
             <> date.format(model.date, tempo.CustomDate("DD-MM-YY")),
           ),
