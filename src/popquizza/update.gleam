@@ -49,7 +49,11 @@ fn app_calculated_stats(model: Model, stats: Stats) {
 fn user_clicked_share_results(model: Model) {
   #(
     model,
-    share_results(model.title, model.url, model.calculate_results(model.questions)),
+    share_results(
+      model.title,
+      model.url,
+      model.calculate_results(model.questions),
+    ),
   )
 }
 
@@ -298,4 +302,3 @@ fn set_localstorage(_key: String, _value: String) -> Nil {
 fn get_localstorage(_key: String) -> Result(String, Nil) {
   Error(Nil)
 }
-

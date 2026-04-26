@@ -2,14 +2,8 @@ import { Ok, Error } from "./gleam.mjs";
 
 export function get_localstorage(key) {
   const json = window.localStorage.getItem(key);
-
   if (json === null) return new Error(undefined);
-
-  try {
-    return new Ok(json);
-  } catch {
-    return new Error(undefined);
-  }
+  return new Ok(json);
 }
 
 export function set_localstorage(key, json) {
@@ -17,10 +11,7 @@ export function set_localstorage(key, json) {
 }
 
 export async function share_results(shareData) {
-  if (
-    navigator.share &&
-    /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
-  ) {
+  if (navigator.canShare && navigator.canShare(shareData)) {
     navigator.share(shareData).catch(console.error);
   } else {
     await navigator.clipboard.writeText(`${shareData.text}`);
