@@ -25,6 +25,8 @@ fn init(_flags) -> #(Model, effect.Effect(Msg)) {
       launch_date: date.literal(model.launch_date),
       stats: Stats(streak: 0, count: 0, total: 0),
       state: model.Loading,
+      history: [],
+      show_history: False,
     )
 
   #(

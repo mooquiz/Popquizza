@@ -25,77 +25,85 @@ pub fn view(model: Model) {
         [html.text("POPQUIZZA")],
       ),
     ]),
-    html.main([], [
-      html.h2(
-        [attribute.class("text-xl font-bold text-subhead dark:text-d-subhead")],
-        [html.text(model.title)],
-      ),
-      html.h2(
-        [
-          attribute.class(
-            "text-xl font-bold mb-8 text-subhead dark:text-d-subhead",
-          ),
-        ],
-        [
-          html.text(
-            "Day "
-            <> model.launch_date
-            |> date.difference(model.date)
-            |> int.add(1)
-            |> int.to_string
-            <> ": "
-            <> date.format(model.date, tempo.CustomDate("DD-MM-YY")),
-          ),
-        ],
-      ),
-      html.div(
-        [attribute.class("flex flex-col gap-6 mb-4")],
-        list.map(model.questions, fn(q) {
-          html.div([], [
-            html.h3([attribute.class("text-lg font-semibold text-head")], [
-              html.text(q.text),
-            ]),
-            html.div(
-              [attribute.class("flex flex-col gap-2")],
-              list.map(q.answers, fn(answer) {
-                answer_div(answer, q, model.state)
-              }),
-            ),
-          ])
-        }),
-      ),
-      case model.state {
-        model.Submitted -> result_panel(model)
-        model.ShowAnswers -> {
-          html.button(
+    case model.show_history {
+      True -> history_page(model)
+      False ->
+        html.main([], [
+          html.h2(
             [
-              event.on_click(update.UserClickedShowResults),
-              attribute.class(button_css(model.unanswered_questions(model))),
+              attribute.class(
+                "text-xl font-bold text-subhead dark:text-d-subhead",
+              ),
             ],
-            [html.text("Show Results")],
-          )
-        }
-        model.Loaded -> {
-          html.button(
+            [html.text(model.title)],
+          ),
+          html.h2(
             [
-              event.on_click(update.UserSubmittedAnswers),
-              attribute.class(button_css(model.unanswered_questions(model))),
+              attribute.class(
+                "text-xl font-bold mb-8 text-subhead dark:text-d-subhead",
+              ),
             ],
-            [html.text("Submit")],
-          )
-        }
-        model.Loading -> {
-          html.p([attribute.class("text-subhead dark:text-d-subhead")], [
-            html.text("Loading…"),
-          ])
-        }
-        model.LoadError -> {
-          html.p([attribute.class("text-subhead dark:text-d-subhead")], [
-            html.text("No quiz found for today. Check back later!"),
-          ])
-        }
-      },
-    ]),
+            [
+              html.text(
+                "Day "
+                <> model.launch_date
+                |> date.difference(model.date)
+                |> int.add(1)
+                |> int.to_string
+                <> ": "
+                <> date.format(model.date, tempo.CustomDate("DD-MM-YY")),
+              ),
+            ],
+          ),
+          html.div(
+            [attribute.class("flex flex-col gap-6 mb-4")],
+            list.map(model.questions, fn(q) {
+              html.div([], [
+                html.h3([attribute.class("text-lg font-semibold text-head")], [
+                  html.text(q.text),
+                ]),
+                html.div(
+                  [attribute.class("flex flex-col gap-2")],
+                  list.map(q.answers, fn(answer) {
+                    answer_div(answer, q, model.state)
+                  }),
+                ),
+              ])
+            }),
+          ),
+          case model.state {
+            model.Submitted -> result_panel(model)
+            model.ShowAnswers -> {
+              html.button(
+                [
+                  event.on_click(update.UserClickedShowResults),
+                  attribute.class(button_css(model.unanswered_questions(model))),
+                ],
+                [html.text("Show Results")],
+              )
+            }
+            model.Loaded -> {
+              html.button(
+                [
+                  event.on_click(update.UserSubmittedAnswers),
+                  attribute.class(button_css(model.unanswered_questions(model))),
+                ],
+                [html.text("Submit")],
+              )
+            }
+            model.Loading -> {
+              html.p([attribute.class("text-subhead dark:text-d-subhead")], [
+                html.text("Loading…"),
+              ])
+            }
+            model.LoadError -> {
+              html.p([attribute.class("text-subhead dark:text-d-subhead")], [
+                html.text("No quiz found for today. Check back later!"),
+              ])
+            }
+          },
+        ])
+    },
   ])
 }
 
@@ -126,13 +134,13 @@ fn results_title(score: Int) {
   }
 }
 
-fn score_div(title: String, number: Int) {
-  score_div_float(title, int.to_float(number), 0)
+fn score_div(title: String, number: Int, extra: List(attribute.Attribute(update.Msg))) {
+  score_div_float(title, int.to_float(number), 0, extra)
 }
 
-fn score_div_float(title: String, number: Float, precision: Int) {
+fn score_div_float(title: String, number: Float, precision: Int, extra: List(attribute.Attribute(update.Msg))) {
   html.div([attribute.class("grow")], [
-    html.div([attribute.class("text-3xl text-center")], [
+    html.div([attribute.class("text-3xl text-center"), ..extra], [
       html.text(case precision {
         0 -> number |> float.truncate |> int.to_string
         _ -> number |> float.to_precision(precision) |> float.to_string
@@ -141,6 +149,7 @@ fn score_div_float(title: String, number: Float, precision: Int) {
     html.div([attribute.class("text-center")], [html.text(title)]),
   ])
 }
+
 
 fn result_panel(model: Model) {
   let result = model.calculate_results(model.questions)
@@ -191,15 +200,19 @@ fn result_panel(model: Model) {
           html.div(
             [attribute.class("flex flex-row border-t border-b my-6 py-2")],
             [
-              score_div("Count", model.stats.count),
-              score_div("Streak", model.stats.streak),
+              score_div("Count", model.stats.count, []),
+              score_div("Streak", model.stats.streak, []),
               score_div_float(
                 "Average",
                 int.to_float(model.stats.total)
                   /. int.to_float(model.stats.count),
                 2,
+                [],
               ),
-              score_div("Total", model.stats.total),
+              score_div("Total", model.stats.total, [
+                attribute.class("cursor-default"),
+                event.on_click(update.UserClickedShowHistory),
+              ]),
             ],
           ),
           html.p([attribute.class("mb-6")], [
@@ -238,6 +251,68 @@ fn result_panel(model: Model) {
           ]),
         ],
       ),
+    ],
+  )
+}
+
+fn history_page(model: Model) {
+  html.main([], [
+    html.div([attribute.class("flex items-center gap-4 mb-8")], [
+      html.a(
+        [
+          event.on_click(update.UserClosedHistory),
+          attribute.class(
+            "cursor-pointer text-subhead dark:text-d-subhead hover:underline",
+          ),
+        ],
+        [html.text("← Back")],
+      ),
+      html.h2(
+        [attribute.class("text-xl font-bold text-subhead dark:text-d-subhead")],
+        [html.text("Your history")],
+      ),
+    ]),
+    case model.history {
+      [] ->
+        html.p([attribute.class("text-subhead dark:text-d-subhead")], [
+          html.text("No results yet!"),
+        ])
+      days ->
+        html.div(
+          [attribute.class("flex flex-col")],
+          list.map(days, fn(day) { history_row(day, model.launch_date) }),
+        )
+    },
+  ])
+}
+
+fn history_row(day: model.DayHistory, launch_date: tempo.Date) {
+  let day_num =
+    launch_date
+    |> date.difference(day.date)
+    |> int.add(1)
+    |> int.to_string
+  html.div(
+    [
+      attribute.class(
+        "flex items-center gap-3 py-2 border-b border-zinc-200 dark:border-zinc-700 last:border-0",
+      ),
+    ],
+    [
+      html.span(
+        [
+          attribute.class(
+            "text-xs text-subhead dark:text-d-subhead w-12 shrink-0",
+          ),
+        ],
+        [html.text(day_num)],
+      ),
+      html.span([attribute.class("text-sm font-bold w-8 shrink-0")], [
+        html.text(int.to_string(day.score) <> "/" <> int.to_string(day.out_of)),
+      ]),
+      html.span([attribute.class("text-sm")], [
+        html.text(model.share_string(day.results)),
+      ]),
     ],
   )
 }

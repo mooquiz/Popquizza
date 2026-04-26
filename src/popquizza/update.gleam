@@ -23,6 +23,9 @@ pub type Msg {
   UserSelectedAnswer(String)
   AppReadQuestions(Result(String, rsvp.Error))
   UserClickedShowResults
+  UserClickedShowHistory
+  UserClosedHistory
+  AppLoadedHistory(List(model.DayHistory))
 }
 
 pub fn update(model: Model, msg: Msg) {
@@ -36,11 +39,51 @@ pub fn update(model: Model, msg: Msg) {
     UserSubmittedAnswers -> user_submitted_answers(model)
     UserSelectedAnswer(value) -> user_selected_answer(model, value)
     UserClickedShowResults -> user_clicked_show_results(model)
+    UserClickedShowHistory -> user_clicked_show_history(model)
+    UserClosedHistory -> #(Model(..model, show_history: False), effect.none())
+    AppLoadedHistory(history) -> #(
+      Model(..model, history: history, show_history: True),
+      effect.none(),
+    )
   }
 }
 
 fn user_clicked_show_results(model: Model) {
   #(Model(..model, state: model.Submitted), effect.none())
+}
+
+fn user_clicked_show_history(model: Model) {
+  #(
+    model,
+    effect.from(fn(dispatch) {
+      let history =
+        do_collect_history(model.date, date.subtract(model.launch_date, 1))
+      dispatch(AppLoadedHistory(history))
+    }),
+  )
+}
+
+fn do_collect_history(
+  d: tempo.Date,
+  stop_at: tempo.Date,
+) -> List(model.DayHistory) {
+  case d {
+    d if d == stop_at -> []
+    d -> {
+      let rest = do_collect_history(date.subtract(d, 1), stop_at)
+      case get_localstorage(model.date_format(d)) {
+        Error(_) -> rest
+        Ok(raw) ->
+          case json.parse(raw, result_decoder()) {
+            Error(_) -> rest
+            Ok(attempt) -> [
+              model.DayHistory(d, attempt.score, attempt.out_of, attempt.results),
+              ..rest
+            ]
+          }
+      }
+    }
+  }
 }
 
 fn app_calculated_stats(model: Model, stats: Stats) {

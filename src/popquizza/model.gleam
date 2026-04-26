@@ -29,6 +29,10 @@ pub type Stats {
   Stats(streak: Int, count: Int, total: Int)
 }
 
+pub type DayHistory {
+  DayHistory(date: tempo.Date, score: Int, out_of: Int, results: List(Bool))
+}
+
 pub type QuizState {
   Loading
   LoadError
@@ -46,6 +50,8 @@ pub type Model {
     launch_date: tempo.Date,
     stats: Stats,
     state: QuizState,
+    history: List(DayHistory),
+    show_history: Bool,
   )
 }
 
