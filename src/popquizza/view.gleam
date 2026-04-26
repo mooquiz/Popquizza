@@ -147,14 +147,14 @@ fn result_panel(model: Model) {
   html.div(
     [
       attribute.class(
-        "fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 text-zinc-800",
+        "fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 text-zinc-800 dark:text-d-normaltext",
       ),
     ],
     [
       html.div(
         [
           attribute.class(
-            "border-2 border-zinc-600 rounded-lg p-4 absolute bg-white",
+            "border-2 border-zinc-600 rounded-lg p-4 absolute bg-white dark:bg-d-background",
           ),
         ],
         [
