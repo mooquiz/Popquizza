@@ -6,6 +6,7 @@ import gleam/int
 import gleam/json
 import gleam/list
 import gleam/option.{None, Some}
+import gleam/result
 import gleam/string
 import lustre/effect
 import popquizza/model.{type Model, type Stats, Model, Stats}
@@ -31,7 +32,7 @@ pub fn update(model: Model, msg: Msg) {
     UserToggledResultPanel -> user_toggled_result_panel(model)
     AppReadAnswers(answers) -> app_read_answers(model, answers)
     AppReadQuestions(Ok(file)) -> app_read_questions(model, file)
-    AppReadQuestions(Error(_)) -> #(model, effect.none())
+    AppReadQuestions(Error(_)) -> #(Model(..model, state: model.LoadError), effect.none())
     UserSubmittedAnswers -> user_submitted_answers(model)
     UserSelectedAnswer(value) -> user_selected_answer(model, value)
     UserClickedShowResults -> user_clicked_show_results(model)
@@ -99,52 +100,41 @@ fn app_read_answers(model: Model, answers: String) {
 }
 
 fn app_read_questions(model, file) {
-  let assert [title, ..questions] = file |> string.trim |> string.split("\n\n")
-  let questions =
-    list.map(questions, fn(q) {
-      let assert [question_text, correct, ..answers] =
-        q
-        |> string.split("\n")
-        |> list.map(fn(x) { string.trim(x) })
-
-      let answers =
-        answers
-        |> list.length
-        |> list.range(1)
-        |> list.reverse
-        |> list.zip(answers)
-        |> list.map(fn(a) {
-          let #(id, text) = a
-          model.Answer(id, text)
-        })
-
-      #(question_text, correct, answers)
-    })
-
-  let questions =
-    questions
-    |> list.length
-    |> list.range(1)
-    |> list.reverse
-    |> list.zip(questions)
-    |> list.map(fn(q) {
-      let #(id, #(question_text, correct, answers)) = q
-      model.Question(
-        id,
-        question_text,
-        answers,
-        case int.parse(correct) {
-          Ok(correct) -> correct
-          Error(Nil) -> 0
-        },
-        None,
+  case parse_questions(file) {
+    Ok(#(title, questions)) ->
+      #(
+        Model(..model, title: title, questions: questions, state: model.Loaded),
+        get_today(model),
       )
-    })
+    Error(_) -> #(Model(..model, state: model.LoadError), effect.none())
+  }
+}
 
-  #(
-    Model(..model, title: title, questions: questions, state: model.Loaded),
-    get_today(model),
-  )
+fn parse_questions(
+  file: String,
+) -> Result(#(String, List(model.Question)), Nil) {
+  case file |> string.trim |> string.split("\n\n") {
+    [title, ..question_blocks] -> {
+      use questions <- result.try(
+        list.index_map(question_blocks, fn(q, i) { parse_question(q, i + 1) })
+        |> result.all,
+      )
+      Ok(#(title, questions))
+    }
+    _ -> Error(Nil)
+  }
+}
+
+fn parse_question(q: String, id: Int) -> Result(model.Question, Nil) {
+  case q |> string.split("\n") |> list.map(string.trim) {
+    [question_text, correct, ..answer_texts] -> {
+      use correct_int <- result.try(int.parse(correct))
+      let answers =
+        list.index_map(answer_texts, fn(text, i) { model.Answer(i + 1, text) })
+      Ok(model.Question(id, question_text, answers, correct_int, None))
+    }
+    _ -> Error(Nil)
+  }
 }
 
 fn user_submitted_answers(model: Model) {

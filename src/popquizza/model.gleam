@@ -31,6 +31,7 @@ pub type Stats {
 
 pub type QuizState {
   Loading
+  LoadError
   Loaded
   Submitted
   ShowAnswers

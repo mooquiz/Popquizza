@@ -75,7 +75,7 @@ pub fn view(model: Model) {
             [html.text("Show Results")],
           )
         }
-        _ -> {
+        model.Loaded -> {
           html.button(
             [
               event.on_click(update.UserSubmittedAnswers),
@@ -83,6 +83,16 @@ pub fn view(model: Model) {
             ],
             [html.text("Submit")],
           )
+        }
+        model.Loading -> {
+          html.p([attribute.class("text-subhead dark:text-d-subhead")], [
+            html.text("Loading…"),
+          ])
+        }
+        model.LoadError -> {
+          html.p([attribute.class("text-subhead dark:text-d-subhead")], [
+            html.text("No quiz found for today. Check back later!"),
+          ])
         }
       },
     ]),
