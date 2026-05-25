@@ -5,7 +5,7 @@ Paranoid was a UK No 1 hit album in 1970 for which band?
 Black Sabbath
 Pink Floyd
 The Beatles
-Creedance Clearwater Revival
+Creedence Clearwater Revival
 
 Every Good Boy Deserves Favour was a UK No 1 hit album in 1971 for which band?
 3
@@ -42,7 +42,7 @@ Pink Floyd
 Wings
 Queen
 
-The Song Remains The Same was a UK No 1 hit single in 1976 for which band?
+The Song Remains The Same was a UK No 1 hit album in 1976 for which band?
 1
 Led Zeppelin
 Dr. Feelgood
@@ -69,4 +69,3 @@ The Police
 Blondie
 Electric Light Orchestra
 Bee Gees
-
