@@ -21,12 +21,12 @@ Distant Echo
 Distant Life
 Distant Lover
 
-The Hollies had a UK No 1 hit single in 1985 as 'I'm...' what?
+The Hollies had a UK No 1 hit single in 1965 as 'I'm...' what?
 2
 I'm Alone
 I'm Alive
 I'm Lonely
-I'm Coming
+I'm Ashamed
 
 Love Affair had a UK No 1 hit single with 'Everlasting...' what?
 4
@@ -40,16 +40,16 @@ Manfred Mann had a UK No 1 hit single in 1966 with 'Pretty...' what?
 Pretty Flamingo
 Pretty Woman
 Pretty Vacant
-Pretty Peter
+Pretty Ridiculous
 
-B. Bumble and the Stingers had a UK No 1 hit single in 1962 with 'Nut...' what?
+B. Bumble And The Stingers had a UK No 1 hit single in 1962 with 'Nut...' what?
 2
 Nut Thief
 Nut Rocker
-Nut Lady
-Nut Hard
+Nut Seller
+Nut Job
 
-The Beach Boys had a UK No 1 hit single in 1957 with 'Good...' What?
+The Beach Boys had a UK No 1 hit single in 1967 with 'Good...' What?
 2
 Good Luck
 Good Vibrations
@@ -59,7 +59,7 @@ Good Cake
 Danny Williams had a UK No 1 in 1961 with 'Moon...' what?
 3
 Moon Safari
-Monn Landing
+Moon Landing
 Moon River
 Moon Child
 
@@ -69,4 +69,3 @@ Dance On
 Dance Party
 Dance Down
 Dance Partner
-
