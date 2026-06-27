@@ -1,6 +1,6 @@
 Classic Cars
 
-In the Beach Boys' 1964 song Fun, Fun, Fun, which car is referenced by its shortened name?
+In the Beach Boys' 1964 song Fun, Fun, Fun, which car is referenced?
 3
 Vauxhall Cavalier
 Chevrolet Corvette
@@ -36,7 +36,7 @@ Amy Winehouse
 Mary Hopkin
 
 According to Madness' 1982 UK No 4 hit single Driving In My Car, the car is 'not quite a...' what?
-2
+3
 Ferrari
 BMW
 Jaguar
