@@ -1,19 +1,5 @@
 Side
 
-Which singer had a UK No 2 hit single in 2013 with The Other Side?
-3
-Justin Bieber
-Flo Roder
-Jason Derulo
-Usher
-
-East Side Story was a UK No 19 hit album in 1981 for which band?
-2
-Simple Minds
-Squeeze
-Then Jericho
-The Beat
-
 Thorn In My Side was a UK No 5 hit single for which group in 1986?
 1
 Eurythmics
@@ -27,6 +13,20 @@ Status Quo
 Travis
 Ezra Collective
 The 1975
+
+East Side Story was a UK No 19 hit album in 1981 for which band?
+2
+Simple Minds
+Squeeze
+Then Jericho
+The Beat
+
+Which singer had a UK No 2 hit single in 2013 with The Other Side?
+3
+Justin Bieber
+Flo Roder
+Jason Derulo
+Usher
 
 Thompson Twins had a UK No 9 hit single in 1983 with what '...On Your Side'?
 2
@@ -49,12 +49,12 @@ Lewis Capaldi
 Joey Essex
 Liam Gallagher
 
-Right By Your Side was a UK No 10 hit single by which group in 1983?
-3
-Duran Duran
-Strawberry Switchblade
-Eurythmics
-Big Country
+'Sean...' who had a UK No 7 hit single in 2013 with Other Side Of Love?
+4
+Sean Lennon
+Sean Willmott
+Sean Maguire
+Sean Paul
 
 Status Quo had a UK No 9 hit single in 1978 with a song called what?
 2
@@ -63,9 +63,9 @@ Wild Side Of Life
 Wild Side Of Love
 Wild Side Of Jupiter
 
-'Sean...' who had a UK No 7 hit single in 2013 with Other Side Of Love?
-4
-Sean Lennon
-Sean Willmott
-Sean Maguire
-Sean Paul
+Right By Your Side was a UK No 10 hit single by which group in 1983?
+3
+Duran Duran
+Strawberry Switchblade
+Eurythmics
+Big Country
