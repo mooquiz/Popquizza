@@ -28,13 +28,6 @@ The Longpigs
 New Order
 Jane's Addiction
 
-Crispin, Alonza, Jay and Paul were all members of which band in 1996?
-4
-Gay Dad
-Ash
-Blur
-Kula Shaker
-
 Roger, Pete, John and Keith were all members of which band in 1969?
 3
 The Byrds
@@ -48,6 +41,13 @@ Rainbow
 The Shadows
 Mud
 Deep Purple
+
+Crispian, Alonza, Jay and Paul were all members of which band in 1996?
+4
+Gay Dad
+Ash
+Blur
+Kula Shaker
 
 Matty, George, Adam and Ross were all members of which band in 2020?
 3
@@ -63,7 +63,7 @@ Ultravox
 The Pale Fountains
 The Human League
 
-Mick, John, Christine, Stevie, Billy and Rick were all members of which band in 1988
+Mick, John, Christine, Stevie, Billy and Rick were all members of which band in 1988?
 3
 Duran Duran
 Toto
