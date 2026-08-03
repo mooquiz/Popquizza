@@ -1,4 +1,4 @@
-Egg
+Eggy
 
 New Egg On Monday - Which word from a 1984 UK No 9 hit single by Duran Duran has been replaced by the word 'egg'?
 2
@@ -23,10 +23,10 @@ Heart
 
 Golden Egg - which word from a 2004 UK No 9 hit single by Razorlight has been replaced by the word 'egg'?
 1
-Golden Touch
-Golden Balls
-Golden World
-Golden Love
+Touch
+Balls
+World
+Love
 
 Egg That Body - which word from a 1982 UK No 7 hit single by Diana Ross has been replaced by the word 'egg'?
 2
@@ -43,7 +43,7 @@ Love
 Hope
 
 Walks Like Egg - which word from a 2013 UK No 4 hit single by The Wanted has been replaced by the word 'egg'?
-2
+3
 Jagger
 Kylie
 Rihanna
@@ -65,7 +65,7 @@ White
 
 Disco Egg - which word from a 1975 UK No 6 hit single by Hamilton Bohannon has been replaced by the word 'egg'?
 3
-Disco Dance
-Disco Duck
-Disco Stomp
-Disco Down
+Dance
+Duck
+Stomp
+Down
