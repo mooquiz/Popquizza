@@ -21,7 +21,7 @@ pub type Msg {
   UserSubmittedAnswers
   UserToggledResultPanel
   UserSelectedAnswer(String)
-  AppReadQuestions(Result(String, rsvp.Error))
+  AppReadQuestions(Result(String, rsvp.Error(String)))
   UserClickedShowResults
   UserClickedShowHistory
   UserClosedHistory
@@ -35,7 +35,10 @@ pub fn update(model: Model, msg: Msg) {
     UserToggledResultPanel -> user_toggled_result_panel(model)
     AppReadAnswers(answers) -> app_read_answers(model, answers)
     AppReadQuestions(Ok(file)) -> app_read_questions(model, file)
-    AppReadQuestions(Error(_)) -> #(Model(..model, state: model.LoadError), effect.none())
+    AppReadQuestions(Error(_)) -> #(
+      Model(..model, state: model.LoadError),
+      effect.none(),
+    )
     UserSubmittedAnswers -> user_submitted_answers(model)
     UserSelectedAnswer(value) -> user_selected_answer(model, value)
     UserClickedShowResults -> user_clicked_show_results(model)
@@ -77,7 +80,12 @@ fn do_collect_history(
           case json.parse(raw, result_decoder()) {
             Error(_) -> rest
             Ok(attempt) -> [
-              model.DayHistory(d, attempt.score, attempt.out_of, attempt.results),
+              model.DayHistory(
+                d,
+                attempt.score,
+                attempt.out_of,
+                attempt.results,
+              ),
               ..rest
             ]
           }
@@ -144,11 +152,10 @@ fn app_read_answers(model: Model, answers: String) {
 
 fn app_read_questions(model, file) {
   case parse_questions(file) {
-    Ok(#(title, questions)) ->
-      #(
-        Model(..model, title: title, questions: questions, state: model.Loaded),
-        get_today(model),
-      )
+    Ok(#(title, questions)) -> #(
+      Model(..model, title: title, questions: questions, state: model.Loaded),
+      get_today(model),
+    )
     Error(_) -> #(Model(..model, state: model.LoadError), effect.none())
   }
 }

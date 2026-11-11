@@ -134,11 +134,20 @@ fn results_title(score: Int) {
   }
 }
 
-fn score_div(title: String, number: Int, extra: List(attribute.Attribute(update.Msg))) {
+fn score_div(
+  title: String,
+  number: Int,
+  extra: List(attribute.Attribute(update.Msg)),
+) {
   score_div_float(title, int.to_float(number), 0, extra)
 }
 
-fn score_div_float(title: String, number: Float, precision: Int, extra: List(attribute.Attribute(update.Msg))) {
+fn score_div_float(
+  title: String,
+  number: Float,
+  precision: Int,
+  extra: List(attribute.Attribute(update.Msg)),
+) {
   html.div([attribute.class("grow")], [
     html.div([attribute.class("text-3xl text-center"), ..extra], [
       html.text(case precision {
@@ -149,7 +158,6 @@ fn score_div_float(title: String, number: Float, precision: Int, extra: List(att
     html.div([attribute.class("text-center")], [html.text(title)]),
   ])
 }
-
 
 fn result_panel(model: Model) {
   let result = model.calculate_results(model.questions)
