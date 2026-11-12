@@ -104,6 +104,7 @@ fn user_clicked_share_results(model: Model) {
     share_results(
       model.title,
       model.url,
+      model.date,
       model.calculate_results(model.questions),
     ),
   )
@@ -242,7 +243,12 @@ fn save_results(model: Model) {
   })
 }
 
-fn share_results(title: String, url: String, result: model.QuizResult) {
+fn share_results(
+  title: String,
+  url: String,
+  date: tempo.Date,
+  result: model.QuizResult,
+) {
   let share_data =
     json.object([
       #(
@@ -255,7 +261,7 @@ fn share_results(title: String, url: String, result: model.QuizResult) {
           <> " on "
           <> title
           <> "\n"
-          <> model.share_string(result.results)
+          <> model.share_string(date, result.results)
           <> "\n"
           <> url
           <> " #popquizza",

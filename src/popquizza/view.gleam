@@ -203,7 +203,7 @@ fn result_panel(model: Model) {
             ),
           ]),
           html.p([attribute.class("mb-6")], [
-            html.text(model.share_string(result.results)),
+            html.text(model.share_string(model.date, result.results)),
           ]),
           html.div(
             [attribute.class("flex flex-row border-t border-b my-6 py-2")],
@@ -319,7 +319,7 @@ fn history_row(day: model.DayHistory, launch_date: tempo.Date) {
         html.text(int.to_string(day.score) <> "/" <> int.to_string(day.out_of)),
       ]),
       html.span([attribute.class("text-sm")], [
-        html.text(model.share_string(day.results)),
+        html.text(model.share_string(day.date, day.results)),
       ]),
     ],
   )
