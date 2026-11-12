@@ -29,9 +29,10 @@ jobs:
         run: gleam run -m lustre/dev build popquizza --minify
       - name: Copy output to dist
         run: |
-          mkdir -p dist
           cp index.html dist/index.html
           cp -r priv dist/priv
+          cp dist/popquizza.css dist/priv/static/popquizza.min.css
+          cp dist/popquizza.js dist/priv/static/popquizza.min.mjs
       - name: Update path in index.html to use minified app
         run: | 
           sed -i 's|priv/static/popquizza.css|priv/static/popquizza.min.css|' dist/index.html
