@@ -134,11 +134,20 @@ fn results_title(score: Int) {
   }
 }
 
-fn score_div(title: String, number: Int, extra: List(attribute.Attribute(update.Msg))) {
+fn score_div(
+  title: String,
+  number: Int,
+  extra: List(attribute.Attribute(update.Msg)),
+) {
   score_div_float(title, int.to_float(number), 0, extra)
 }
 
-fn score_div_float(title: String, number: Float, precision: Int, extra: List(attribute.Attribute(update.Msg))) {
+fn score_div_float(
+  title: String,
+  number: Float,
+  precision: Int,
+  extra: List(attribute.Attribute(update.Msg)),
+) {
   html.div([attribute.class("grow")], [
     html.div([attribute.class("text-3xl text-center"), ..extra], [
       html.text(case precision {
@@ -149,7 +158,6 @@ fn score_div_float(title: String, number: Float, precision: Int, extra: List(att
     html.div([attribute.class("text-center")], [html.text(title)]),
   ])
 }
-
 
 fn result_panel(model: Model) {
   let result = model.calculate_results(model.questions)
@@ -195,7 +203,7 @@ fn result_panel(model: Model) {
             ),
           ]),
           html.p([attribute.class("mb-6")], [
-            html.text(model.share_string(result.results)),
+            html.text(model.share_string(model.date, result.results)),
           ]),
           html.div(
             [attribute.class("flex flex-row border-t border-b my-6 py-2")],
@@ -311,7 +319,7 @@ fn history_row(day: model.DayHistory, launch_date: tempo.Date) {
         html.text(int.to_string(day.score) <> "/" <> int.to_string(day.out_of)),
       ]),
       html.span([attribute.class("text-sm")], [
-        html.text(model.share_string(day.results)),
+        html.text(model.share_string(day.date, day.results)),
       ]),
     ],
   )
